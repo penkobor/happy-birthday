@@ -148,13 +148,8 @@ function initializeGiftDownload() {
 }
 
 function downloadPdfGift() {
-    // Create a link to download the PDF file
-    const a = document.createElement('a');
-    a.href = 'HappyBirthday!.pdf';
-    a.download = 'Подарок_для_Насти.pdf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    // Open PDF in new tab
+    window.open('HappyBirthday!.pdf', '_blank');
     
     // Show success message
     showDownloadSuccess();
@@ -178,7 +173,7 @@ function showDownloadSuccess() {
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         animation: slideIn 0.5s ease-out;
     `;
-    notification.innerHTML = '🎁 PDF подарок скачан! 🎉';
+    notification.innerHTML = '🎁 PDF подарок открыт! 🎉';
     
     document.body.appendChild(notification);
     
