@@ -29,7 +29,7 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 400px; /* Немного уменьшил, чтобы не доминировал */
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
             height: 250px;
@@ -41,7 +41,7 @@
             left: 24px;
             top: 0;
             bottom: 0;
-            width: 1px; /* Тоньше и элегантнее */
+            width: 1px;
             background-color: #E5E7EB;
             z-index: 0;
         }
@@ -86,9 +86,8 @@
                 <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">20–22 Февраля 2026</p>
             </div>
             <div class="hidden md:block text-right">
-                 <!-- Бюджет есть, но он аккуратный и незаметный -->
                 <div class="text-xs text-gray-400">Бюджет на двоих</div>
-                <div class="text-sm font-medium text-gray-600">~10 000 CZK</div>
+                <div class="text-sm font-medium text-gray-600">~10 000 CZK (€396)</div>
             </div>
         </div>
     </header>
@@ -98,11 +97,11 @@
         <!-- Intro Section -->
         <section class="text-center space-y-6 animate-fade-in px-4">
             <h2 class="text-4xl md:text-6xl serif-font text-gray-800 leading-tight">
-                Время для <span class="text-[#B25068] italic">любви</span><br>и медленных прогулок
+                Время для <span class="text-[#B25068] italic">любви</span><br>и вкусной еды
             </h2>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-                Наши три дня в Венеции. Без спешки, без толп, только мы, каналы и искусство.
-                Мы выбрали путь "Slow Travel": поздние завтраки, вино на закате и скрытые от глаз уголки.
+                Наши три дня в Венеции. Без спешки, без толп, но с полным погружением в гастрономию.
+                Мы выбрали путь "Slow Travel": поздние завтраки, вино на закате и отличные ужины.
             </p>
 
             <div class="flex justify-center gap-6 text-sm text-gray-500 pt-4 border-t border-gray-100 max-w-md mx-auto">
@@ -110,20 +109,21 @@
                     <span>🏠</span> Castello 3901
                 </div>
                 <div class="flex items-center gap-2">
-                    <span>🥂</span> Aperitivo Time
+                    <span>🍝</span> Гастро-тур
                 </div>
                 <div class="flex items-center gap-2">
-                    <span>🎭</span> Post-Carnival
+                    <span>🍷</span> Вино и Любовь
                 </div>
             </div>
         </section>
 
-        <!-- Interactive Itinerary (Main Focus) -->
+        <!-- Interactive Itinerary -->
         <section id="itinerary" class="bg-white rounded-2xl shadow-xl shadow-gray-100/50 border border-gray-100 overflow-hidden">
             <div class="p-8 border-b border-gray-50 text-center bg-gradient-to-b from-red-50/30 to-white">
                 <h2 class="text-3xl serif-font text-gray-800 mb-2 italic">Наша История</h2>
                 <p class="text-sm text-gray-500 font-light">
-                    Нажимайте на дни, чтобы увидеть детали. <br>Цены указаны ориентировочно на двоих или за услугу.
+                    Цены указаны <b>на двоих</b>. В план включены все основные приемы пищи.<br>
+                    Мы точно не останемся голодными.
                 </p>
             </div>
 
@@ -135,7 +135,7 @@
                 </button>
                 <button onclick="switchTab('day2')" id="tab-day2" class="flex-1 py-5 text-center text-sm md:text-base text-gray-400 hover:text-[#B25068] transition-colors">
                     <span class="block serif-font text-lg">Суббота</span>
-                    <span class="text-xs font-light text-gray-400">Высота и Вода</span>
+                    <span class="text-xs font-light text-gray-400">Вкус и Вода</span>
                 </button>
                 <button onclick="switchTab('day3')" id="tab-day3" class="flex-1 py-5 text-center text-sm md:text-base text-gray-400 hover:text-[#B25068] transition-colors">
                     <span class="block serif-font text-lg">Воскресенье</span>
@@ -150,20 +150,18 @@
                 <div id="content-day1" class="space-y-10 relative pl-2 md:pl-6">
                     <div class="timeline-line"></div>
 
-                    <!-- Item -->
                     <div class="relative pl-10 timeline-item group">
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">✈️</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">14:10</span>
                             <h4 class="text-lg serif-font text-gray-800 ml-4">Прибытие в Тревизо</h4>
-                            <span class="price-tag">Bus: €22</span>
+                            <span class="price-tag">Bus (2 чел): €44</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Начало приключения. Садимся в автобус ATVO справа, чтобы первыми увидеть лагуну.
+                            Билет туда-обратно на двоих. Садимся справа.
                         </p>
                     </div>
 
-                    <!-- Item -->
                     <div class="relative pl-10 timeline-item group">
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🧡</div>
                         <div class="flex items-center mb-1">
@@ -173,13 +171,12 @@
                         </div>
                         <div class="pl-20 mt-2">
                             <p class="text-gray-600 text-sm font-light italic border-l-2 border-[#B25068] pl-3 py-1">
-                                "Золотой час" в Венеции. Мы идем пешком от вокзала через весь город к нашему дому в Castello. Первый поцелуй на мосту Риальто.
+                                Пешком через весь город к нашему дому в Castello.
                             </p>
-                            <p class="text-xs text-gray-400 mt-2">Перекус: панини в "Da Lele" (~€8)</p>
+                            <p class="text-xs text-gray-400 mt-2">Перекус в "Da Lele": ~€8</p>
                         </div>
                     </div>
 
-                    <!-- Item -->
                     <div class="relative pl-10 timeline-item group">
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🗝️</div>
                         <div class="flex items-center mb-1">
@@ -188,21 +185,32 @@
                             <span class="price-tag">Tax: ~€14</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Заселяемся в квартиру (Castello 3901). Оставляем вещи и освежаемся с дороги.
+                            Заселение (Castello 3901). Оплата городского налога наличными.
                         </p>
                     </div>
 
-                    <!-- Item -->
                     <div class="relative pl-10 timeline-item group">
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🍷</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">19:00</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Вечер "У местных"</h4>
-                            <span class="price-tag">Ужин: ~€35-40</span>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Ужин "У местных"</h4>
+                            <span class="price-tag">Ужин + Вино: ~€48</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Ужин на улице Via Garibaldi (El Refolo или Rampa). Это район, где живут настоящие венецианцы.
-                            <br><span class="text-[#B25068] font-medium text-xs mt-1 block">Совет: Купить вино в Coop (~€8) для вечера дома.</span>
+                            Ужин на улице Via Garibaldi (паста/пицца) + покупка вина в Coop для вечера дома.
+                        </p>
+                    </div>
+
+                    <!-- DAY 1: 18+ Section -->
+                    <div class="relative pl-10 timeline-item group">
+                        <div class="absolute -left-[10px] top-1 w-6 h-6 bg-[#B25068] rounded-full border border-white shadow-md flex items-center justify-center text-xs text-white z-10">🔥</div>
+                        <div class="flex items-center mb-1">
+                            <span class="text-sm font-medium text-[#B25068] w-16">22:00</span>
+                            <h4 class="text-lg serif-font text-[#B25068] ml-4">Вино и 🔞💦😏</h4>
+                            <span class="price-tag bg-red-50 text-red-800">Бесценно</span>
+                        </div>
+                        <p class="text-gray-600 text-sm font-light pl-20 italic">
+                            Шторы задернуты, город засыпает. Время только для нас двоих.
                         </p>
                     </div>
                 </div>
@@ -216,10 +224,10 @@
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">10:00</span>
                             <h4 class="text-lg serif-font text-gray-800 ml-4">Ленивое Утро</h4>
-                            <span class="price-tag">~€6</span>
+                            <span class="price-tag">Завтрак: ~€6</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Просыпаемся поздно. Кофе и свежая выпечка в ближайшем баре. Неспешная прогулка к центру.
+                            Кофе и выпечка в ближайшем баре.
                         </p>
                     </div>
 
@@ -227,11 +235,11 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🌀</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">13:00</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Секретная Лестница</h4>
-                            <span class="price-tag">Билеты: €18</span>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Обед и Лестница</h4>
+                            <span class="price-tag">Вход: €18 | Обед: ~€30</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Scala Contarini del Bovolo. Уникальный вид на крыши, скрытый от большинства туристов.
+                            Scala Contarini del Bovolo. После — сытный обед в барах (Cicchetti) у Риальто.
                         </p>
                     </div>
 
@@ -239,12 +247,12 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-[#B25068] rounded-full border border-white shadow-md flex items-center justify-center text-xs text-white z-10">★</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-[#B25068] w-16">15:00</span>
-                            <h4 class="text-lg serif-font text-[#B25068] ml-4">Начало Навигации</h4>
-                            <span class="price-tag bg-red-50 text-red-800">Pass: €50</span>
+                            <h4 class="text-lg serif-font text-[#B25068] ml-4">Проездной 24ч</h4>
+                            <span class="price-tag bg-red-50 text-red-800">Pass (2 чел): €50</span>
                         </div>
                         <div class="pl-20 mt-1">
                             <p class="text-sm text-gray-600 italic">
-                                Активируем проездной на 24 часа. С этого момента вся Венеция и острова — наши.
+                                Активируем. Действует до 15:00 завтра.
                             </p>
                         </div>
                     </div>
@@ -253,24 +261,36 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🌅</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">16:30</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Лучший вид на Сан-Марко</h4>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">San Giorgio Maggiore</h4>
                             <span class="price-tag">Лифт: €16</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Плывем на остров San Giorgio Maggiore. Поднимаемся на колокольню. Весь город как на ладони в мягком предзакатном свете.
+                            Лучший вид на город.
                         </p>
                     </div>
 
                     <div class="relative pl-10 timeline-item group">
-                        <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🍦</div>
+                        <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🍝</div>
                         <div class="flex items-center mb-1">
-                            <span class="text-sm font-medium text-gray-400 w-16">18:00</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Джелато на набережной</h4>
-                            <span class="price-tag">Сладкое: ~€10</span>
+                            <span class="text-sm font-medium text-gray-400 w-16">19:30</span>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Ужин в Дорсодуро</h4>
+                            <span class="price-tag">Ужин: ~€50 | Джелато: ~€10</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Прогулка по солнечной набережной Zattere. Пробуем легендарное джелато в "Nico".
-                            Возвращаемся домой на вапоретто по ночному Гранд-каналу.
+                            Романтический ужин в районе Zattere/Dorsoduro и джелато на десерт.
+                        </p>
+                    </div>
+
+                    <!-- DAY 2: 18+ Section -->
+                    <div class="relative pl-10 timeline-item group">
+                        <div class="absolute -left-[10px] top-1 w-6 h-6 bg-[#B25068] rounded-full border border-white shadow-md flex items-center justify-center text-xs text-white z-10">🌙</div>
+                        <div class="flex items-center mb-1">
+                            <span class="text-sm font-medium text-[#B25068] w-16">22:30</span>
+                            <h4 class="text-lg serif-font text-[#B25068] ml-4">Ночь Любви 😏</h4>
+                            <span class="price-tag bg-red-50 text-red-800">Бесценно</span>
+                        </div>
+                        <p class="text-gray-600 text-sm font-light pl-20 italic">
+                            Венецианская магия продолжается за закрытыми дверями.
                         </p>
                     </div>
                 </div>
@@ -283,11 +303,11 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">👋</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">10:30</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Прощание с домом</h4>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Check-out</h4>
                             <span class="price-tag">Бесплатно</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Выселяемся, берем рюкзаки и идем пешком к причалу Fondamente Nove.
+                            Идем пешком к причалу Fondamente Nove.
                         </p>
                     </div>
 
@@ -295,11 +315,11 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">💎</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">12:00</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Остров Мурано</h4>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Мурано</h4>
                             <span class="price-tag">Обед: ~€25</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Тихий остров стеклодувов. Гуляем, смотрим витрины (как в музее), обедаем без суеты.
+                            Стеклодувы и обед на острове.
                         </p>
                     </div>
 
@@ -308,10 +328,10 @@
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-[#B25068] w-16">14:30</span>
                             <h4 class="text-lg serif-font text-[#B25068] ml-4">Последний Корабль</h4>
-                            <span class="price-tag">Включено в Pass</span>
+                            <span class="price-tag">Включено</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20 italic">
-                            Важно сесть на вапоретто обратно в город до 15:00, пока действует наш билет.
+                            Обратно в город до 15:00.
                         </p>
                     </div>
 
@@ -319,11 +339,11 @@
                         <div class="absolute -left-[10px] top-1 w-6 h-6 bg-white rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-xs z-10">🍹</div>
                         <div class="flex items-center mb-1">
                             <span class="text-sm font-medium text-gray-400 w-16">15:30</span>
-                            <h4 class="text-lg serif-font text-gray-800 ml-4">Финальный Спритц</h4>
-                            <span class="price-tag">~€12</span>
+                            <h4 class="text-lg serif-font text-gray-800 ml-4">Спритц и Дорога</h4>
+                            <span class="price-tag">Спритц: ~€12 | Еда в путь: ~€20</span>
                         </div>
                         <p class="text-gray-600 text-sm font-light pl-20">
-                            Идем через древнее Гетто. Останавливаемся в баре Al Timon на последний бокал перед дорогой.
+                            Бар Al Timon, затем покупка еды в дорогу и трансфер в аэропорт.
                         </p>
                     </div>
                 </div>
@@ -336,10 +356,10 @@
             <!-- Cards -->
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-xl border border-gray-100 card-hover">
-                    <h3 class="text-xl serif-font text-gray-800 mb-2 italic">Магия Времени</h3>
+                    <h3 class="text-xl serif-font text-gray-800 mb-2 italic">Полный Контроль</h3>
                     <p class="text-sm text-gray-600 font-light leading-relaxed">
-                        Мы используем хитрость с билетом: активируем его только на второй день.
-                        Это позволяет провести первый день в пеших прогулках (самых романтичных!), а дорогие водные маршруты оставить на финал.
+                        Мы включили <b>все обеды и ужины</b> в обязательный план (~350€).
+                        Остаток (~40€) — это ваш честный резерв на сувениры или экстренный кофе.
                     </p>
                 </div>
 
@@ -347,7 +367,7 @@
                     <h3 class="text-xl serif-font text-gray-800 mb-2 italic">Вкус Венеции</h3>
                     <p class="text-sm text-gray-600 font-light leading-relaxed">
                         Вместо туристических ресторанов мы выбираем <b>Bacari</b>.
-                        Это маленькие бары, где можно стоять с бокалом вина (Ombra) и пробовать местные закуски (Cicchetti), чувствуя себя частью города.
+                        Это маленькие бары, где можно стоять с бокалом вина (Ombra) и пробовать местные закуски (Cicchetti).
                     </p>
                 </div>
             </div>
@@ -355,8 +375,8 @@
             <!-- Budget Visualization (De-emphasized) -->
             <div class="bg-[#FDFBF7] p-6">
                 <div class="text-center mb-4">
-                    <h3 class="text-lg serif-font text-gray-700 italic">Баланс Впечатлений</h3>
-                    <p class="text-xs text-gray-400">На что мы меняем монеты</p>
+                    <h3 class="text-lg serif-font text-gray-700 italic">Распределение 10 000 CZK</h3>
+                    <p class="text-xs text-gray-400">Еда — это святое</p>
                 </div>
                 <div class="chart-container opacity-90">
                     <canvas id="budgetChart"></canvas>
@@ -384,14 +404,21 @@
 
     <script>
         // --- DATA ---
+        // Total Budget: 396 EUR
+        // Timeline Calculation (Now inclusive of meals):
+        // Day 1: Bus 44 + Snack 8 + Dinner/Wine 48 + Tax 14 = 114
+        // Day 2: Breakfast 6 + Scala 18 + Lunch 30 + Pass 50 + Lift 16 + Dinner 50 + Gelato 10 = 180
+        // Day 3: Lunch 25 + Spritz 12 + Road Snack 20 = 57
+        // Total Plan = 114 + 180 + 57 = 351 EUR
+        // Reserve = 396 - 351 = 45 EUR
+
         const budgetData = {
             total: 396,
             breakdown: [
-                { label: 'Ужины и Вино', value: 220, color: '#B25068' }, // Romantic Red
-                { label: 'Вапоретто', value: 98, color: '#779FA1' },   // Teal/Water
-                { label: 'Искусство', value: 34, color: '#E0C097' },    // Gold/Sand
-                { label: 'Завтраки', value: 30, color: '#FFDCAE' },    // Peach
-                { label: 'Разное', value: 14, color: '#C8C6C6' }  // Grey
+                { label: 'Еда и Вино (План)', value: 209, color: '#B25068' },     // ~210 EUR Food
+                { label: 'Транспорт', value: 98, color: '#779FA1' },            // 44 + 50 + 4
+                { label: 'Культура и Налог', value: 48, color: '#C5A059' },     // 18 + 16 + 14
+                { label: 'Резерв', value: 41, color: '#E0E0E0' }                // Remaining
             ]
         };
 
