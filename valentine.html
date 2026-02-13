@@ -24,7 +24,7 @@
             font-weight: bold;
             pointer-events: none;
             text-shadow: 0 0 8px rgba(255,200,220,0.6), 0 0 20px rgba(255,150,180,0.3);
-            animation: floatUp 2.5s ease-out forwards;
+            animation: floatUp 2.75s ease-out forwards;
             z-index: 10;
             user-select: none;
             white-space: nowrap;
@@ -34,7 +34,7 @@
         @keyframes floatUp {
             0% { opacity: 1; transform: translateY(0) scale(1); }
             40% { opacity: 0.9; transform: translateY(-35px) scale(1.1); }
-            100% { opacity: 0; transform: translateY(-110px) scale(0.6); }
+            100% { opacity: 0; transform: translateY(-120px) scale(0.6); }
         }
         #valentine-text {
             position: fixed;
@@ -51,9 +51,29 @@
             letter-spacing: 3px;
             text-align: center;
         }
+        #tap-hint {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff2244;
+            font-size: clamp(18px, 4vw, 28px);
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            text-shadow: 0 0 12px rgba(255,50,80,0.7), 0 0 30px rgba(255,30,60,0.4);
+            z-index: 20;
+            pointer-events: none;
+            animation: hintPulse 1.5s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+        @keyframes hintPulse {
+            0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
     </style>
 </head>
 <body>
+    <div id="tap-hint">тапни меня 💗</div>
     <div id="valentine-text">Happy Valentine's Day ♡</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -157,65 +177,35 @@
     scene.add(particles);
 
     // ========================
-    // COMPLIMENTS (5 languages, 4 tiers by intensity)
+    // SEQUENTIAL MESSAGES (Russian only)
     // ========================
-
-    // Tier 1: Light/playful (0–30%)
-    const tier1 = [
-        "Милая ✨", "Симпатичная 🌸", "Классная 💫", "Приятная ☺️", "Интересная 🌟",
-        "Сұлу ✨", "Тамаша 🌸", "Керемет 💫", "Жақсы 🌟", "Қызық ☺️",
-        "So pretty ✨", "Amazing 🌸", "Wonderful 💫", "Sweet 🌟", "Lovely ☺️",
-        "Мила ✨", "Чудова 🌸", "Класна 💫", "Приємна 🌟", "Цікава ☺️",
-        "Krásná ✨", "Skvělá 🌸", "Úžasná 💫", "Milá 🌟", "Zajímavá ☺️",
-        "Самая стильная 👗", "Ең стильдісің 👗", "So stylish 👗", "Найстильніша 👗", "Nejstylověji 👗",
-        "Самая эстетичная 🎨", "Ең эстетиктісің 🎨", "So aesthetic 🎨", "Найестетичніша 🎨", "Nejestetičtější 🎨"
+    const messages = [
+        "Ты делаешь мои недели интереснее 🌟",
+        "И намного приятнее 😊",
+        "Обожаю твое чувство эстетики 🎨✨",
+        "У тебя офигенный вкус во всём 👗💫",
+        "А еще у тебя очень классная попа 🍑",
+        "Очень сладкая и приятная 😁🍬",
+        "И пахнешь ты невероятно 🌸💐",
+        "С тобой можно очень клево потусить 🎉🥂",
+        "Или проходить игры на иксбоксе 🎮🕹️",
+        "Без тебя я их никогда не прохожу до конца 😅🏆",
+        "Рад, что ты законектилась с моими друзьями 🤝💛",
+        "Ты делаешь самые обдуманные подарки 🎁💝",
+        "Жду не дождусь наших путешествий ✈️🌍",
+        "Надеюсь, у нас все будет складываться круто 🍀🤞",
+        "Ты очень приятный и важный для меня человек 💖🥰",
+        "Я тебя люблю ❤️"
     ];
+    let currentMsgIndex = 0;
 
-    // Tier 2: Warm compliments (30–55%)
-    const tier2 = [
-        "Самая красивая 💖", "Самая лучшая 💗", "Самая умная 🧠✨", "Самая нежная 🌷", "Невероятная 💕",
-        "Ең әдемісің 💖", "Ең жақсысың 💗", "Ең ақылдысың 🧠✨", "Ең нәзіксің 🌷", "Таңғажайыпсың 💕",
-        "The most beautiful 💖", "The very best 💗", "So smart 🧠✨", "So gentle 🌷", "Incredible 💕",
-        "Найкрасивіша 💖", "Найкраща 💗", "Найрозумніша 🧠✨", "Найніжніша 🌷", "Неймовірна 💕",
-        "Nejkrásnější 💖", "Nejlepší 💗", "Nejchytřejší 🧠✨", "Nejjemnější 🌷", "Neuvěřitelná 💕",
-        "Самая красивая попа 🍑", "Ең әдемі попа 🍑", "The prettiest booty 🍑", "Найкрасивіша попа 🍑", "Nejhezčí zadek 🍑"
-    ];
-
-    // Tier 3: Deep/serious (55–80%)
-    const tier3 = [
-        "Ты особенная 🌹", "С тобой мир прекрасен 🌍💖",
-        "Сен ерекшесің 🌹", "Сенімен әлем керемет 🌍💖",
-        "You're one of a kind 🌹", "The world is beautiful with you 🌍💖",
-        "Ти особлива 🌹", "З тобою світ прекрасний 🌍💖",
-        "Jsi výjimečná 🌹", "S tebou je svět krásný 🌍💖"
-    ];
-
-    // Tier 4: "I love you" — only at 80%+
-    const tier4 = [
-        "Я люблю тебя ❤️",
-        "Мен сені сүйемін ❤️",
-        "I love you ❤️",
-        "Я кохаю тебе ❤️",
-        "Miluji tě ❤️"
-    ];
-
-    let lastMsgIdx = -1;
-    function getCompliment(intensity) {
-        let pool;
-        if (intensity >= 0.80) {
-            pool = [...tier3, ...tier4, ...tier4];
-        } else if (intensity >= 0.55) {
-            pool = tier3;
-        } else if (intensity >= 0.30) {
-            pool = tier2;
-        } else {
-            pool = tier1;
+    function getNextMessage() {
+        if (currentMsgIndex < messages.length) {
+            return messages[currentMsgIndex++];
         }
-        let idx;
-        do { idx = Math.floor(Math.random() * pool.length); }
-        while (idx === lastMsgIdx && pool.length > 1);
-        lastMsgIdx = idx;
-        return pool[idx];
+        // After all shown, cycle from the last few heartfelt ones
+        const lastFew = messages.slice(-4);
+        return lastFew[Math.floor(Math.random() * lastFew.length)];
     }
 
     // ========================
@@ -229,12 +219,16 @@
     // CLICK/TAP HANDLER
     // ========================
     function handleTap(x, y) {
+        // Hide hint on first tap
+        const hint = document.getElementById('tap-hint');
+        if (hint) hint.remove();
+
         heartIntensity = Math.min(heartIntensity + 0.06, 1);
         clickBurstScale = 0.35;
 
         const textEl = document.createElement('div');
         textEl.className = 'love-text';
-        textEl.textContent = getCompliment(heartIntensity);
+        textEl.textContent = getNextMessage();
 
         // White → light pink based on intensity
         const pink = Math.floor(heartIntensity * 50);
@@ -247,7 +241,7 @@
         textEl.style.top = (y - 20) + 'px';
         textEl.style.fontSize = (16 + Math.random() * 10 + heartIntensity * 6) + 'px';
         document.body.appendChild(textEl);
-        setTimeout(() => textEl.remove(), 2600);
+        setTimeout(() => textEl.remove(), 2860);
     }
 
     // Mouse clicks
